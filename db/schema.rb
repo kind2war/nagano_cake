@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_14_131642) do
+ActiveRecord::Schema.define(version: 2023_07_15_070443) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id", null: false
@@ -44,32 +44,33 @@ ActiveRecord::Schema.define(version: 2023_07_14_131642) do
     t.string "encrypted_password", default: "", null: false
     t.string "family_name", default: "", null: false
     t.string "first_name", default: "", null: false
-    t.string "rubi_family_name", default: "", null: false
-    t.string "rubi_first_name", default: "", null: false
     t.string "post_code", default: "", null: false
     t.string "address", default: "", null: false
     t.string "phonenumber", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "family_name_kana", default: "", null: false
+    t.string "first_name_kana", default: "", null: false
+    t.boolean "is_deleted", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "genre_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name", null: false
   end
 
   create_table "items", force: :cascade do |t|
     t.integer "genre_id", null: false
-    t.string "item_name", null: false
     t.text "item_description", null: false
     t.integer "price_out", null: false
     t.integer "sales_status", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name", null: false
   end
 
   create_table "models", force: :cascade do |t|
